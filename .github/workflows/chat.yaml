@@ -3,7 +3,7 @@ name: Terraform Deployment
 on:
   push:
     branches:
-      - feature**
+      - feature/**
       - main  # Adjust this to match your main branch name
 
 jobs:
@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
-          terraform_version: 1.0.0
+          terraform_version: 1.8.0
           
       - name: Authenticate to Google Cloud Platform
         uses: GoogleCloudPlatform/github-actions/setup-gcloud@v1
